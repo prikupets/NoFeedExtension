@@ -3,10 +3,12 @@ function tryRemoveFeed() {
   // It won't significantly decrease page performance
   let intervalId = setInterval(function() {
     let feedNavButtonPath = "#l_nwsf";
+    let clipsFeedNavContentPath = "#l_svd";
     let feedContentPath = ".wide_column_left";
 
     if(null != document.querySelector(feedNavButtonPath)) {
       document.querySelector(feedNavButtonPath).outerHTML = "";
+      document.querySelector(clipsFeedNavContentPath).outerHTML = "";
     }
 
     if(null != document.querySelector(feedContentPath)
