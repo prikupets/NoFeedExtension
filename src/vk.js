@@ -1,7 +1,6 @@
 function redirectFromFeed() {
     if(document.location.pathname.includes("/feed") || document.location.pathname.includes("/clips")) {
       document.location.href = "im";
-      clearInterval(intervalId);
     }
 }
 

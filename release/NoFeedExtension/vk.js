@@ -1,4 +1,11 @@
-function tryRemoveFeed() {
+function redirectFromFeed() {
+    if(document.location.pathname.includes("/feed") || document.location.pathname.includes("/clips")) {
+      document.location.href = "im";
+      clearInterval(intervalId);
+    }
+}
+
+function removeFeedFromSidebar() {
   // Repetitive interval because of bug: if you open vk.com/dev and then come back to feed then it will not be removed
   // It won't significantly decrease page performance
     let intervalId = setInterval(function() {
@@ -10,12 +17,9 @@ function tryRemoveFeed() {
       document.querySelector(feedNavButtonPath).outerHTML = "";
       document.querySelector(clipsFeedNavContentPath).outerHTML = "";
     }
-
-    if(document.location.pathname.includes("/feed") || document.location.pathname.includes("/clips")) {
-      document.location.href = "im";
-    }
-
   }, 150);
-}
+}    
 
-tryRemoveFeed();
+
+redirectFromFeed();
+removeFeedFromSidebar();
